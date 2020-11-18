@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FoodController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,4 +21,5 @@ Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('/');
 
-Route::resource('/category', CategoryController::class);
+Route::resource('category', CategoryController::class);
+Route::resource('food', FoodController::class);

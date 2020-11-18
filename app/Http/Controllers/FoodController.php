@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use App\Models\Food;
+use App\Http\Requests\FoodRequest;
+use App\Models\{Food, Category};
 
 class FoodController extends Controller
 {
@@ -24,7 +26,9 @@ class FoodController extends Controller
      */
     public function create()
     {
-        //
+        return view('food.create', [
+            "categories" => Category::get(),
+        ]);
     }
 
     /**
@@ -33,9 +37,22 @@ class FoodController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FoodRequest $request)
     {
-        //
+        $request->validate([
+            'image' => 'image|mimes:jpg,jpeg,gif,png,svg|max:20000'
+        ]);
+
+        $attr = $request->all();
+        $attr['slug'] = Str::slug(request('name'));
+
+        $image = request()->file('image') ? $image = request()->file('image')->store('image/food') : null;
+        $attr['image'] = $image;
+
+        Food::create($attr);
+
+        return redirect()->back()->with('success', 'Food is Created');
+
     }
 
     /**

@@ -13,7 +13,14 @@
             <div class="card text-white bg-dark mb-3">
 
                 <div class="card-header">
-                    All Category Food
+                    <span style="font-size: 23px">All Category Food</span>
+                    <span class="float-right">
+                        <a href="{{ route('category.create') }}">
+                        <button class="btn btn-outline-primary">
+                            Add Category
+                        </button>
+                        </a>
+                    </span>
                 </div>
                 <div class="card-body">
                     <table class="table table-dark">
@@ -33,7 +40,6 @@
                                 <td scope="row">
                                     <a href="{{ route('category.edit', [$category->id]) }}" class="mr-2">
                                         <button class="btn btn-outline-info">Edit</button>
-                                    </a>
                                     </a>
                                     <button class="btn btn-outline-danger" data-toggle="modal"
                                         data-target="#exampleModal{{ $category->id }}">

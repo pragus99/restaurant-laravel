@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FoodController;
+use GuzzleHttp\Middleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +18,14 @@ use App\Http\Controllers\FoodController;
 |
 */
 
-Auth::routes();
+Auth::routes(['register'=>false]);
 
 Route::get('/', [HomeController::class, 'index'])->name('/');
 
-Route::resource('category', CategoryController::class);
-Route::resource('food', FoodController::class);
+Route::group(['middleware' => ['auth']], function () {
+    Route::resource('category', CategoryController::class);
+    Route::resource('food', FoodController::class);
+});
+
+Route::get('/', [FoodController::class, 'foodList']);
+Route::get('/foods/{id}', [FoodController::class, 'show'])->name('food.show');

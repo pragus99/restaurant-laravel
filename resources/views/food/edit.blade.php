@@ -10,13 +10,14 @@
             </div>
             @endif
             <div class="card text-white bg-dark mb-3">
-                <div class="card-header">Add Food</div>
+                <div class="card-header">Update Food</div>
                 <div class="card-body">
-                    <form action="{{ route('food.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('food.update', [$food->id]) }}" method="POST" enctype="multipart/form-data">
                         @csrf
+                        @method('PATCH')
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror">
+                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ $food->name }}">
                             @error('name')
                             <div class="mt-2 text-danger font-weight-bolder" role="alert">
                                 {{ $message }}
@@ -27,7 +28,7 @@
                         <div class="form-group">
                             <label for="description">Description</label>
                             <textarea name="description"
-                            class="form-control @error('description') is-invalid @enderror"></textarea>
+                            class="form-control @error('description') is-invalid @enderror">{{ $food->description }}</textarea>
                             @error('description')
                             <div class="mt-2 text-danger font-weight-bolder" role="alert">
                                 {{ $message }}
@@ -37,7 +38,7 @@
 
                         <div class="form-group">
                             <label for="price">Price</label>
-                            <input type="text" name="price" class="form-control @error('price') is-invalid @enderror">
+                            <input type="text" name="price" class="form-control @error('price') is-invalid @enderror" value="{{ $food->price }}">
                             @error('price')
                             <div class="mt-2 text-danger font-weight-bolder" role="alert">
                                 {{ $message }}
@@ -50,7 +51,9 @@
                             <select name="category" class="form-control @error('category') is-invalid @enderror">
                                 <option disabled value="">Select Category</option>
                                 @foreach ($categories as $category)
-                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                <option value="{{ $category->id }}"@if($category->id==$food->category_id)selected @endif>
+                                {{ $category->name }}
+                                </option>
                                 @endforeach
                             </select>
                             @error('category')

@@ -72,7 +72,7 @@ body {
   line-height: 1.6;
   color: #212529;
   text-align: left;
-  background-color: #2a333b;
+  background-color: #252525;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -10903,3 +10903,15 @@ a.text-dark:focus {
   }
 }
 
+.pagination > li > a
+{
+    background-color: #004040;
+    color: #C0FFFF;
+}
+
+.page-item.active .page-link {
+  z-index: 1;
+  color: #004040;
+  background-color: #E0E0E0;
+  border-color: #e8f3f3; 
+}

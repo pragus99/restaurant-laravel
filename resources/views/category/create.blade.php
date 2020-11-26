@@ -19,7 +19,7 @@
                             <label for="name">Name</label>
                             <input id="name" type="name" class="form-control @error('name') is-invalid @enderror" name="name" autofocus>
                             @error('name')
-                            <span class="text text-warning" role="alert">{{ $message }}</span>
+                            <span class="mt-2 text-danger font-weight-bolder" role="alert">{{ $message }}</span>
                             @enderror
                         </div>
 

@@ -9,10 +9,15 @@ class Food extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'slug', 'description', 'price', 'category_id', 'image'];
+    protected $fillable = ['name', 'description', 'price', 'category_id', 'image'];
 
     public function category()
     {
-        return $this->belongsTo(category::class);
+        return $this->hasOne(category::class, 'id', 'category_id');
+    }
+
+    public function takeImage()
+    {
+        return 'storage/' . $this->image;
     }
 }

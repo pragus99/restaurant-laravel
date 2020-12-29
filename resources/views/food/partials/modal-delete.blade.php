@@ -8,11 +8,11 @@
           </button>
         </div>
         <div class="modal-body text-left">
-          <h4 class="text-dark">{{ $food->name }}</h6>
+          <h4 class="text-dark">{{ $food->name }}</h4>
         </div>
         <div class="modal-footer">
                 <form action="{{ route('food.destroy', [$food->id]) }}" method="POST">
-                    @method('DELETE')
+                    @method('delete')
                     @csrf
                     <button class="btn btn-danger" type="submit">Delete</button>
                 </form>

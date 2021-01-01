@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Laravel\Ui\Presets\Bootstrap;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

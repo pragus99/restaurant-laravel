@@ -49,7 +49,6 @@ class FoodController extends Controller
 
         $attr = $request->all();
         $attr['category_id'] = request('category');
-        $attr['slug'] = Str::slug(request('name'));
         
         $image = request()->file('image') ? $image = request()->file('image')->store('image/food') : null;
         //run php artisan storage:link

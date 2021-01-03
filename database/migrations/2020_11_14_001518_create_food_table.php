@@ -17,7 +17,6 @@ class CreateFoodTable extends Migration
             $table->id();
             $table->integer('category_id')->nullable();
             $table->string('name', 50);
-            $table->string('slug', 191);
             $table->text('description');
             $table->integer('price');
             $table->string('image');

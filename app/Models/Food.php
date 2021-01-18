@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Food extends Model
 {
@@ -13,7 +14,7 @@ class Food extends Model
 
     public function category()
     {
-        return $this->hasOne(category::class, 'id', 'category_id');
+        return $this->hasOne(Category::class, 'id', 'category_id');
     }
 
     public function takeImage()

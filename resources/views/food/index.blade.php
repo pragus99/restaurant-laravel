@@ -48,7 +48,7 @@
                                 <td scope="row">{{ $food->name }}</td>
                                 <td scope="row">{{ $food->description }}</td>
                                 <td scope="row">${{ $food->price }}</td>
-                                <td scope="row">{{ $food->category->name }}</td>
+                                
                                 <td scope="row">
                                     <a href="{{ route('food.edit', [$food->id]) }}">
                                         <button class="btn btn-outline-info">Edit</button>

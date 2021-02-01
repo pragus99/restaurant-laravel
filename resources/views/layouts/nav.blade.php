@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
-        <a class="navbar-brand py-3" href="{{ route('/') }}">Restaurant</a>
+        <a class="navbar-brand py-2" href="{{ route('/') }}">Restaurant</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -8,8 +8,8 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-link" href="{{ route("food.menu") }}">Menu</a>
-                <a class="nav-link" href="/resources/views/about">About</a>
-                <a class="nav-link" href="/resources/views/contact">Contact</a>
+                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="#">Contact</a>
             </div>
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
